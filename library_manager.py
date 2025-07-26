@@ -81,7 +81,28 @@ def display_statistics_ui(library):
     st.write(f"**Percentage read:** {percentage_read:.2f}%")
 
 def main():
+    st.markdown(
+        """
+        <style>
+        .top-banner {
+            background-color: #f0f0f0;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: #2c3e50;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        </style>
+        <div class="top-banner">🚀 Build by Shahzaib Rajput</div>
+        """,
+        unsafe_allow_html=True
+    )
+
     st.title("📚 Library Manager System")
+
     library = load_library()
     menu = ["Add Book", "Remove Book", "Search Library", "Display Library Books", "Display Statistics"]
     choice = st.sidebar.selectbox("Menu", menu)
@@ -96,9 +117,6 @@ def main():
         display_library_books_ui(library)
     elif choice == "Display Statistics":
         display_statistics_ui(library)
-
-    st.markdown("---")
-    st.markdown("<center><b>Developed by Shahzaib Rajput</b></center>", unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
